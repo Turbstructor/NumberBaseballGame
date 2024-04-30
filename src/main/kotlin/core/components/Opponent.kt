@@ -10,7 +10,7 @@ class Opponent {
         var baseballNumber: Int
         do {
             baseballNumber = Random.nextInt(100, 1000)
-        } while(baseballNumber.toString().toCharArray().toSet().size != 3)
+        } while (baseballNumber.toString().toCharArray().toSet().size != 3)
 
         return baseballNumber
     }

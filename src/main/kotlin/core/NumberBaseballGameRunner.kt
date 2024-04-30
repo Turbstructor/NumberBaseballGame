@@ -14,14 +14,15 @@ class NumberBaseballGameRunner {
             player.makeGuess()
 
             gameRecord.countCurrentGame()
-            if(judge.isStrikedOut(player.number, opponent.number)) {
+            if (judge.isStrikedOut(player.number, opponent.number)) {
                 println("Strike-out! You've made it in ${gameRecord.attemptsCurrentGame} attempt(s)!\n")
                 gameRecord.addRecord()
                 break
-            }
-            else println("$judge\n")
+            } else println("$judge\n")
         }
     }
 
-    fun showRecords() { println(gameRecord) }
+    fun showRecords() {
+        println(gameRecord)
+    }
 }

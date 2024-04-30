@@ -5,10 +5,17 @@ class GameRecord {
         private set
     private val attempts: MutableList<Int> = mutableListOf()
 
-    private fun clear() { attemptsCurrentGame = 0 }
-    fun countCurrentGame() { attemptsCurrentGame += 1 }
+    fun countCurrentGame() {
+        attemptsCurrentGame += 1
+    }
 
-    fun addRecord() { attempts.add(attemptsCurrentGame); clear() }
+    private fun clear() {
+        attemptsCurrentGame = 0
+    }
+
+    fun addRecord() {
+        attempts.add(attemptsCurrentGame); clear()
+    }
 
     override fun toString(): String {
         var message = "Querying game records..."
@@ -16,8 +23,8 @@ class GameRecord {
         when (attempts.size) {
             0 -> message += " None found."
             else -> attempts.forEachIndexed { index, guesses ->
-                    message += "\nGame #$index: $guesses guess(es)"
-                }
+                message += "\nGame #$index: $guesses guess(es)"
+            }
         }
 
         return message

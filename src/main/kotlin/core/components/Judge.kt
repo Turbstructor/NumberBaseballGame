@@ -4,7 +4,9 @@ class Judge {
     private var strikes: Int = 0
     private var balls: Int = 0
 
-    private fun clear() { strikes = 0; balls = 0 }
+    private fun clear() {
+        strikes = 0; balls = 0
+    }
 
     private fun generateDigitIndices(number: Int): IntArray {
         val result = IntArray(10) { -1 }
