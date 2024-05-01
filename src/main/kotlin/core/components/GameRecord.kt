@@ -1,20 +1,20 @@
 package spartacodingclub.nbcamp.kotlinspring.assignment.numberBaseballGame.core.components
 
 class GameRecord {
-    var attemptsCurrentGame: Int = 0
+    var attemptsCurrentGame: MutableList<Int> = mutableListOf()
         private set
-    private val attempts: MutableList<Int> = mutableListOf()
+    private val attempts: MutableList<MutableList<Int>> = mutableListOf()
 
-    fun countCurrentGame() {
-        attemptsCurrentGame += 1
+    fun logAttempt(number: Int) {
+        attemptsCurrentGame.add(number)
     }
 
-    private fun clear() {
-        attemptsCurrentGame = 0
+    fun initNewGame() {
+        attemptsCurrentGame = mutableListOf()
     }
 
-    fun addRecord() {
-        attempts.add(attemptsCurrentGame); clear()
+    fun logCurrentGame() {
+        attempts.add(attemptsCurrentGame);
     }
 
     override fun toString(): String {
@@ -23,7 +23,8 @@ class GameRecord {
         when (attempts.size) {
             0 -> message += " None found."
             else -> attempts.forEachIndexed { index, guesses ->
-                message += "\nGame #$index: $guesses guess(es)"
+                message += "\nGame #$index: ${guesses.size} guess(es)\n" +
+                        "> For ${guesses.last()}: (${guesses.joinToString(" -> ")})"
             }
         }
 

@@ -9,14 +9,15 @@ class NumberBaseballGameRunner {
         val player = Player()
         val opponent = Opponent()
         val judge = Judge()
+        gameRecord.initNewGame()
 
         while (player.number != opponent.number) {
             player.makeGuess()
 
-            gameRecord.countCurrentGame()
+            gameRecord.logAttempt(player.number)
             if (judge.isStrikedOut(player.number, opponent.number)) {
-                println("Strike-out! You've made it in ${gameRecord.attemptsCurrentGame} attempt(s)!\n")
-                gameRecord.addRecord()
+                println("Strike-out! You've made it in ${gameRecord.attemptsCurrentGame.size} attempt(s)!\n")
+                gameRecord.logCurrentGame()
                 break
             } else println("$judge\n")
         }
