@@ -5,7 +5,7 @@ class Player {
         private set
 
     private val isNumberValid: Boolean
-        get() = (number.toString().toCharArray().toSet().size == 3)
+        get() = (number in 100..999 && number.toString().toCharArray().toSet().size == 3)
 
     fun makeGuess() {
         while (true) {
@@ -14,16 +14,16 @@ class Player {
                 number = readln().toInt()
 
                 if (isNumberValid) break
-                else println("Error: Invalid input: 3 digits are not unique!")
+                else println("Error: Invalid input: number is not 3-digited nor all 3 digits are not unique!")
             } catch (e: NumberFormatException) {
-                print("Error: Invalid input: ${e.message}!")
+                print("Error: Invalid input: ${e.message?.replaceFirstChar { it.lowercase() }}")
             } catch (e: CharacterCodingException) {
                 print("Error: Invalid input: ${e.message}!")
             } catch (e: RuntimeException) {
                 print("Error: Invalid input: ${e.message}!")
             } finally {
-                if (!isNumberValid)
-                    println("Please try again with 3-digit number with all 3 digits unique.\n")
+                if (isNumberValid) break
+                println("Please try again with 3-digit number with all 3 digits unique.\n")
             }
         }
     }

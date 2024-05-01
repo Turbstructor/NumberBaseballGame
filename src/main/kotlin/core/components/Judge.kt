@@ -25,12 +25,11 @@ class Judge {
     }
 
     fun isStrikedOut(source: Int, target: Int): Boolean {
-        clear()
+        this.clear()
 
         val sourceIndices = generateDigitIndices(source)
         val targetIndices = generateDigitIndices(target)
 
-        assert(sourceIndices.size == targetIndices.size)
 
         for (i in sourceIndices.indices) {
             when {

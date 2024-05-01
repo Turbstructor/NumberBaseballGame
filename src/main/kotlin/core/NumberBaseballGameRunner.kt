@@ -2,7 +2,7 @@ package spartacodingclub.nbcamp.kotlinspring.assignment.numberBaseballGame.core
 
 import spartacodingclub.nbcamp.kotlinspring.assignment.numberBaseballGame.core.components.*
 
-class NumberBaseballGameRunner {
+object NumberBaseballGameRunner {
     private val gameRecord = GameRecord()
 
     fun playGame() {

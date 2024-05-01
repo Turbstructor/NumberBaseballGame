@@ -23,7 +23,7 @@ class GameRecord {
         when (attempts.size) {
             0 -> message += " None found."
             else -> attempts.forEachIndexed { index, guesses ->
-                message += "\nGame #$index: ${guesses.size} guess(es)\n" +
+                message += "\nGame #${index + 1}: ${guesses.size} guess(es)\n" +
                         "> For ${guesses.last()}: (${guesses.joinToString(" -> ")})"
             }
         }
