@@ -14,19 +14,16 @@ class Player {
                 number = readln().toInt()
 
                 if (isNumberValid) break
-                else {
-                    println("Error: Invalid input: 3 digits are not unique!")
-                    println("Please try again with 3-digit number with all 3 digits unique.\n")
-                }
+                else println("Error: Invalid input: 3 digits are not unique!")
             } catch (e: NumberFormatException) {
                 print("Error: Invalid input: ${e.message}!")
-                println("Please try again with 3-digit number with all 3 digits unique.\n")
             } catch (e: CharacterCodingException) {
                 print("Error: Invalid input: ${e.message}!")
-                println("Please try again with 3-digit number with all 3 digits unique.\n")
             } catch (e: RuntimeException) {
                 print("Error: Invalid input: ${e.message}!")
-                println("Please try again with 3-digit number with all 3 digits unique.\n")
+            } finally {
+                if (!isNumberValid)
+                    println("Please try again with 3-digit number with all 3 digits unique.\n")
             }
         }
     }

@@ -4,7 +4,7 @@ import spartacodingclub.nbcamp.kotlinspring.assignment.numberBaseballGame.core.N
 
 fun main() {
     val gameRunner = NumberBaseballGameRunner()
-    var menu: Int
+    var menu: Int = 0
 
     println("Welcome to the Number Baseball Game!\n")
     while (true) {
@@ -17,13 +17,12 @@ fun main() {
                 if (menu in 1..3) break
             } catch (e: NumberFormatException) {
                 print("Error: Invalid input: ${e.message}")
-                println("Please try again with number within range [1, 3].\n")
             } catch (e: CharacterCodingException) {
                 print("Error: Invalid input: ${e.message}")
-                println("Please try again with number within range [1, 3].\n")
             } catch (e: RuntimeException) {
                 print("Error: Invalid input: ${e.message}")
-                println("Please try again with number within range [1, 3].\n")
+            } finally {
+                if (menu !in 1..3) println("Please try again with number within range [1, 3].\n")
             }
         }
 
