@@ -11,16 +11,14 @@ class Player {
         while (true) {
             try {
                 print("Enter number of your guess: ")
-                number = readln().toInt()
 
-                if (isNumberValid) break
-                else println("Error: Invalid input: number is not 3-digited nor all 3 digits are not unique!")
+                number = readln().toInt()
             } catch (e: NumberFormatException) {
-                print("Error: Invalid input: ${e.message?.replaceFirstChar { it.lowercase() }}")
+                println("Error: Invalid input: cannot parse value into int ${e.message?.replaceFirstChar { it.lowercase() }}")
             } catch (e: CharacterCodingException) {
-                print("Error: Invalid input: ${e.message}!")
+                println("Error: Invalid input: ${e.message}!")
             } catch (e: RuntimeException) {
-                print("Error: Invalid input: ${e.message}!")
+                println("Error: Invalid input: ${e.message}!")
             } finally {
                 if (isNumberValid) break
                 println("Please try again with 3-digit number with all 3 digits unique.\n")

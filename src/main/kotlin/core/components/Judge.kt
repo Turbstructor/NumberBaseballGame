@@ -27,6 +27,11 @@ class Judge {
     fun isStrikedOut(source: Int, target: Int): Boolean {
         this.clear()
 
+        /*
+        3
+        { -1, -1, -1, 0, 1, -1, -1, 2, -1, -1 }
+         */
+
         val sourceIndices = generateDigitIndices(source)
         val targetIndices = generateDigitIndices(target)
 

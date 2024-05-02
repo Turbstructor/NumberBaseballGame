@@ -16,9 +16,8 @@ object NumberBaseballGameRunner {
 
             gameRecord.logAttempt(player.number)
             if (judge.isStrikedOut(player.number, opponent.number)) {
-                println("Strike-out! You've made it in ${gameRecord.attemptsCurrentGame.size} attempt(s)!\n")
+                println("Strike-out! You've made it in ${gameRecord.attemptsCurrentGame.size} attempt(s)!")
                 gameRecord.logCurrentGame()
-                break
             } else println("$judge\n")
         }
     }

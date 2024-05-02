@@ -14,11 +14,7 @@ fun main() {
 
                 menu = readln().toInt()
             } catch (e: NumberFormatException) {
-                println("Error: Invalid input: ${e.message?.replaceFirstChar { it.lowercase() }}")
-            } catch (e: CharacterCodingException) {
-                println("Error: Invalid input: ${e.message}")
-            } catch (e: RuntimeException) {
-                println("Error: Invalid input: ${e.message}")
+                println("Error: Invalid input: cannot parse value into int ${e.message?.replaceFirstChar { it.lowercase() }}")
             } finally {
                 if (menu in 1..3) break
                 println("Please try again with number within range [1, 3].\n")
