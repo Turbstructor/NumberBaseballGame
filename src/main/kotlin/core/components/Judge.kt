@@ -1,8 +1,11 @@
 package spartacodingclub.nbcamp.kotlinspring.assignment.numberBaseballGame.core.components
 
-class Judge {
+object Judge {
     private var strikes: Int = 0
     private var balls: Int = 0
+
+    val isStrikeOut: Boolean
+        get() = (strikes == 3)
 
     private fun clear() {
         strikes = 0; balls = 0
@@ -13,24 +16,15 @@ class Judge {
         var numberVar = number
 
         for (i in 2 downTo 0) {
-            result[numberVar % 10] = when (result[numberVar % 10]) {
-                -1 -> i
-                else -> throw IllegalArgumentException("Number does not have 3 unique digits")
-            }
-
+            result[numberVar % 10] = i
             numberVar /= 10
         }
 
         return result
     }
 
-    fun isStrikedOut(source: Int, target: Int): Boolean {
+    fun judge(source: Int, target: Int) {
         this.clear()
-
-        /*
-        3
-        { -1, -1, -1, 0, 1, -1, -1, 2, -1, -1 }
-         */
 
         val sourceIndices = generateDigitIndices(source)
         val targetIndices = generateDigitIndices(target)
@@ -43,8 +37,6 @@ class Judge {
                 else -> balls += 1
             }
         }
-
-        return (strikes == 3)
     }
 
     override fun toString(): String = "Your guess makes... $strikes strike(s), $balls ball(s)"

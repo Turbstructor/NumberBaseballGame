@@ -3,7 +3,7 @@ package spartacodingclub.nbcamp.kotlinspring.assignment.numberBaseballGame
 import spartacodingclub.nbcamp.kotlinspring.assignment.numberBaseballGame.core.NumberBaseballGameRunner
 
 fun main() {
-    var menu: Int = 0
+    var menu = 0
 
     println("Welcome to the Number Baseball Game!\n")
     while (true) {

@@ -15,10 +15,6 @@ class Player {
                 number = readln().toInt()
             } catch (e: NumberFormatException) {
                 println("Error: Invalid input: cannot parse value into int ${e.message?.replaceFirstChar { it.lowercase() }}")
-            } catch (e: CharacterCodingException) {
-                println("Error: Invalid input: ${e.message}!")
-            } catch (e: RuntimeException) {
-                println("Error: Invalid input: ${e.message}!")
             } finally {
                 if (isNumberValid) break
                 println("Please try again with 3-digit number with all 3 digits unique.\n")

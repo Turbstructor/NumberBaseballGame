@@ -1,6 +1,6 @@
 package spartacodingclub.nbcamp.kotlinspring.assignment.numberBaseballGame.core.components
 
-class GameRecord {
+object GameRecord {
     var attemptsCurrentGame: MutableList<Int> = mutableListOf()
         private set
     private val attempts: MutableList<MutableList<Int>> = mutableListOf()
@@ -14,7 +14,7 @@ class GameRecord {
     }
 
     fun logCurrentGame() {
-        attempts.add(attemptsCurrentGame);
+        attempts.add(attemptsCurrentGame)
     }
 
     override fun toString(): String {

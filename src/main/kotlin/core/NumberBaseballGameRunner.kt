@@ -3,26 +3,27 @@ package spartacodingclub.nbcamp.kotlinspring.assignment.numberBaseballGame.core
 import spartacodingclub.nbcamp.kotlinspring.assignment.numberBaseballGame.core.components.*
 
 object NumberBaseballGameRunner {
-    private val gameRecord = GameRecord()
-
     fun playGame() {
+        GameRecord.initNewGame()
         val player = Player()
         val opponent = Opponent()
-        val judge = Judge()
-        gameRecord.initNewGame()
 
-        while (player.number != opponent.number) {
+        do {
             player.makeGuess()
+            GameRecord.logAttempt(player.number)
 
-            gameRecord.logAttempt(player.number)
-            if (judge.isStrikedOut(player.number, opponent.number)) {
-                println("Strike-out! You've made it in ${gameRecord.attemptsCurrentGame.size} attempt(s)!")
-                gameRecord.logCurrentGame()
-            } else println("$judge\n")
-        }
+            Judge.judge(player.number, opponent.number)
+            println("$Judge")
+
+            if (Judge.isStrikeOut) {
+                println("Strike-out! You've made it in ${GameRecord.attemptsCurrentGame.size} attempt(s)!")
+                GameRecord.logCurrentGame()
+            }
+            println()
+        } while (player.number != opponent.number)
     }
 
     fun showRecords() {
-        println(gameRecord)
+        println(GameRecord)
     }
 }
